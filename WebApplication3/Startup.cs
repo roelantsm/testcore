@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,9 +27,33 @@ namespace WebApplication3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var server = Configuration["DBServer"] ?? "localhost";
+            var port = Configuration["DBPort"] ?? "1433";
+            var user = Configuration["DBUser"] ?? "SA";
+            var password = Configuration["DBPassword"] ?? "Manager2017";
+            var database = Configuration["Database"] ?? "Colours4";
+            
+            
+            
             services.AddDbContext<StudentContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer($"Server={server},{port};Initial Catalog={database}; User ID ={user}; Password={password}"));
 
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+                {
+                    options.Password.RequiredLength = 10;
+                    options.Password.RequiredUniqueChars = 3;
+                    options.Password.RequireNonAlphanumeric = false;
+                })
+                .AddEntityFrameworkStores<StudentContext>();
+
+            // services.Configure<IdentityOptions>(options =>
+            // {
+            //     options.Password.RequiredLength = 10;
+            //     options.Password.RequiredUniqueChars = 3;
+            //     options.Password.RequireNonAlphanumeric = false;
+            // });
+            
             services.AddTransient<IStudentRepository, StudentService>();
 
             services.AddControllersWithViews();
@@ -52,7 +77,7 @@ namespace WebApplication3
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

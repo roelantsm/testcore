@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Michiel\\RiderProjects\\WebApplication3\\WebApplication3\\WebApplication3.csproj": {}
+    "C:\\Users\\michiel.roelants\\RiderProjects\\testcore\\WebApplication3\\WebApplication3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Michiel\\RiderProjects\\WebApplication3\\WebApplication3\\WebApplication3.csproj": {
+    "C:\\Users\\michiel.roelants\\RiderProjects\\testcore\\WebApplication3\\WebApplication3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Michiel\\RiderProjects\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
+        "projectUniqueName": "C:\\Users\\michiel.roelants\\RiderProjects\\testcore\\WebApplication3\\WebApplication3.csproj",
         "projectName": "WebApplication3",
-        "projectPath": "C:\\Users\\Michiel\\RiderProjects\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
-        "packagesPath": "C:\\Users\\Michiel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Michiel\\RiderProjects\\WebApplication3\\WebApplication3\\obj\\",
+        "projectPath": "C:\\Users\\michiel.roelants\\RiderProjects\\testcore\\WebApplication3\\WebApplication3.csproj",
+        "packagesPath": "C:\\Users\\michiel.roelants\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\michiel.roelants\\RiderProjects\\testcore\\WebApplication3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Michiel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\michiel.roelants\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {}
           }
         },
@@ -40,8 +41,19 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.0.0, )"
             },
@@ -68,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

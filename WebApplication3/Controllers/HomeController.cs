@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication3.Models;
@@ -24,8 +25,27 @@ namespace WebApplication3.Controllers
 
         public IActionResult Index()
         {
+
+            // _repository.createStudent(new Student()
+            // {
+            //     Achternaam = "MR",
+            //     Voornaam = "test"
+            // });
+            
             List<Student> students = new List<Student>();
+            _logger.LogInformation("test123");
             students = _repository.getAllStudents().ToList();
+
+            _logger.LogInformation(students[0].Achternaam);
+
+            return View("Index",students);
+        }
+        
+        [Authorize]
+        [HttpGet]
+        public IActionResult ListItems()
+        {
+            
             return View();
         }
 

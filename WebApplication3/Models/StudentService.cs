@@ -18,5 +18,12 @@ namespace WebApplication3.Models
         {
            return _context.Students.ToList();
         }
+
+        public Student createStudent(Student student)
+        {
+            _context.Students.Add(student);
+            _context.SaveChanges();
+            return student;
+        }
     }
 }

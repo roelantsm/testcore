@@ -1,10 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<ApplicationUser> SignInManager;
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - WebApplication3</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/lib/jquery/dist/jquery.min.js"/>
+    <link rel="stylesheet" href="~/lib/jquery-validation/dist/jquery.validate.min.js"/>
     <link rel="stylesheet" href="~/css/site.css"/>
 </head>
 <body>
@@ -25,6 +30,39 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
                 </ul>
+                
+                
+                
+                <ul class="navbar-nav ml-auto">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item">
+                            
+                            <form method="post" asp-action="logout" asp-controller="Account">
+                                <button type="submit" class="nav-link btn btn-link py-0"
+                                        style="width: auto">
+                                    Logout @User.Identity.Name
+                                </button>
+                                
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Register" class="nav-link">register</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a asp-controller="Account" asp-action="Login" class="nav-link">Login</a>
+                        </li>
+                        
+                    }
+                  
+                </ul>
+                
+                
             </div>
         </div>
     </nav>

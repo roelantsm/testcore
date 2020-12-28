@@ -1,0 +1,16 @@
+﻿version: '3'
+services:
+  ms-sql-server:
+    image: microsoft/mssql-server-linux
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Manager2017
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+  colour-api:
+    build: .
+    environment:
+      DBServer: "ms-sql-server"
+    ports:
+      - "8081:80"
