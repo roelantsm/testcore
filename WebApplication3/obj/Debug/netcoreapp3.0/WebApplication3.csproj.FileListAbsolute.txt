@@ -112,3 +112,7 @@ C:\Users\michiel.roelants\RiderProjects\testcore\WebApplication3\obj\Debug\netco
 C:\Users\michiel.roelants\RiderProjects\testcore\WebApplication3\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\michiel.roelants\RiderProjects\testcore\WebApplication3\obj\Debug\netcoreapp3.0\Razor\Views\Home\ListItems.cshtml.g.cs
 C:\Users\michiel.roelants\RiderProjects\testcore\WebApplication3\bin\Debug\netcoreapp3.0\package-lock.json
+C:\Users\michiel.roelants\RiderProjects\testcore\WebApplication3\obj\Debug\netcoreapp3.0\Razor\Views\Administration\CreateRole.cshtml.g.cs
+C:\Users\michiel.roelants\RiderProjects\testcore\WebApplication3\obj\Debug\netcoreapp3.0\Razor\Views\Administration\ListRoles.cshtml.g.cs
+C:\Users\michiel.roelants\RiderProjects\testcore\WebApplication3\obj\Debug\netcoreapp3.0\Razor\Views\Administration\EditRole.cshtml.g.cs
+C:\Users\michiel.roelants\RiderProjects\testcore\WebApplication3\obj\Debug\netcoreapp3.0\Razor\Views\Home\NotFound.cshtml.g.cs
