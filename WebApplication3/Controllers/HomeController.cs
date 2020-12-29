@@ -36,8 +36,6 @@ namespace WebApplication3.Controllers
             _logger.LogInformation("test123");
             students = _repository.getAllStudents().ToList();
 
-            _logger.LogInformation(students[0].Achternaam);
-
             return View("Index",students);
         }
         

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication3.Models.DB
@@ -12,6 +13,9 @@ namespace WebApplication3.Models.DB
         
         public DbSet<Student> Students { get; set; }
         
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseSqlite("Data Source=blogging.db");
+       
         
          // protected override void OnModelCreating(ModelBuilder modelBuilder)
          // {
