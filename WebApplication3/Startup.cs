@@ -27,18 +27,18 @@ namespace WebApplication3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // var server = Configuration["DBServer"] ?? "localhost";
-            // var port = Configuration["DBPort"] ?? "1433";
-            // var user = Configuration["DBUser"] ?? "SA";
-            // var password = Configuration["DBPassword"] ?? "Manager2017";
-            // var database = Configuration["Database"] ?? "Colours4";
+            var server = Configuration["DBServer"] ?? "localhost";
+            var port = Configuration["DBPort"] ?? "1433";
+            var user = Configuration["DBUser"] ?? "SA";
+            var password = Configuration["DBPassword"] ?? "Manager2017";
+            var database = Configuration["Database"] ?? "Colours4";
             
             
-            services.AddDbContext<StudentContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+        //    services.AddDbContext<StudentContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             
-             // services.AddDbContext<StudentContext>(options =>
-             //     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //     options.UseSqlServer($"Server={server},{port};Initial Catalog={database}; User ID ={user}; Password={password}"));
+             services.AddDbContext<StudentContext>(options =>
+            //     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer($"Server={server},{port};Initial Catalog={database}; User ID ={user}; Password={password}"));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                 {
@@ -54,6 +54,14 @@ namespace WebApplication3
             //     options.Password.RequiredUniqueChars = 3;
             //     options.Password.RequireNonAlphanumeric = false;
             // });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("DeleteRolePolicy",
+                    policy => 
+                        policy.RequireClaim("Delete Role")
+                        .RequireClaim("Create Role"));
+            });
             
             services.AddTransient<IStudentRepository, StudentService>();
 
